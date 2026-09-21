@@ -2,12 +2,12 @@
 
 An 18+ fan archive dedicated to Dark Prince × Bandit.
 
-## Sections
+## Design
 
-- Gallery
-- Animations
-
-Artwork and animations are organized by artist.
+- Desktop: dark violet / magenta / pink
+- Mobile: a separate, more robust purple/pink layout with solid color layers
+- Sections: Gallery and Animations
+- Artwork and animations are organized by artist
 
 ## Disclaimer
 
