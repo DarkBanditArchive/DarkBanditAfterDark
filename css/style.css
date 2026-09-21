@@ -1,43 +1,134 @@
-/* =========================================================
-   DARKBANDIT AFTER DARK
-   Separate desktop and mobile visual systems
-   ========================================================= */
-
-:root {
-    --bg-desktop: #11051d;
-    --bg-mobile: #180722;
-    --panel: #21102f;
-    --panel-2: #2b123b;
-    --pink: #ff3f9f;
-    --pink-light: #ff8ac7;
-    --magenta: #d83dff;
-    --violet: #914cff;
-    --violet-light: #c98aff;
-    --text: #fff2fb;
-    --muted: #d0b9d8;
-    --border: rgba(255, 77, 171, .45);
+* {
+    box-sizing: border-box;
 }
 
-* { box-sizing: border-box; }
+:root {
+    --bg: #100518;
+    --bg2: #1d0829;
+    --panel: #281033;
+    --pink: #ff4fa8;
+    --pink-light: #ff91c9;
+    --violet: #9d55ff;
+    --violet-light: #c993ff;
+    --text: #fff1fa;
+    --muted: #d4bddc;
+    --border: rgba(255, 79, 168, .42);
+}
 
-html { min-height: 100%; }
+html, body {
+    margin: 0;
+    min-height: 100%;
+}
 
 body {
-    margin: 0;
     min-height: 100vh;
     color: var(--text);
     font-family: Arial, Helvetica, sans-serif;
-    background-color: var(--bg-desktop);
+    background-color: var(--bg);
     background-image:
-        radial-gradient(ellipse at 15% 0%, rgba(145,76,255,.42) 0%, transparent 38%),
-        radial-gradient(ellipse at 88% 12%, rgba(255,63,159,.32) 0%, transparent 35%),
-        linear-gradient(145deg, #0d0315 0%, #190724 48%, #23092e 100%);
+        radial-gradient(circle at 15% 0%, rgba(157,85,255,.35), transparent 38%),
+        radial-gradient(circle at 85% 10%, rgba(255,79,168,.28), transparent 34%),
+        linear-gradient(145deg, #0c0312, #1a0625 55%, #230a30);
 }
 
-/* ---------- Header ---------- */
+/* 18+ entrance */
+
+.age-gate {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background:
+        radial-gradient(circle at 50% 35%, rgba(157,85,255,.28), transparent 38%),
+        linear-gradient(145deg, #0b0310, #190621 55%, #280932);
+}
+
+.age-card {
+    width: min(520px, 100%);
+    padding: 44px 30px 38px;
+    text-align: center;
+    border: 1px solid rgba(255,79,168,.55);
+    border-radius: 22px;
+    background: rgba(25, 7, 34, .97);
+    box-shadow:
+        0 0 70px rgba(255,79,168,.13),
+        0 0 110px rgba(157,85,255,.12);
+}
+
+.age-icon {
+    font-size: 3.5rem;
+    margin-bottom: 12px;
+}
+
+.age-card h1 {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(2.2rem, 8vw, 3.6rem);
+    letter-spacing: .08em;
+    color: var(--pink-light);
+}
+
+.age-subtitle {
+    margin-top: 3px;
+    color: var(--violet-light);
+    font-size: .7rem;
+    letter-spacing: .38em;
+    padding-left: .38em;
+    font-weight: bold;
+}
+
+.age-card h2 {
+    margin: 30px 0 12px;
+    font-family: Georgia, "Times New Roman", serif;
+    color: #fff;
+    font-size: 1.65rem;
+}
+
+.age-card p {
+    margin: 0 auto;
+    max-width: 420px;
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+.age-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 28px;
+}
+
+.age-button {
+    border: 1px solid var(--pink);
+    border-radius: 999px;
+    padding: 12px 24px;
+    color: white;
+    background: #42134f;
+    font: inherit;
+    cursor: pointer;
+}
+
+.age-button.enter {
+    background: linear-gradient(135deg, #9d2c78, #6e31b4);
+}
+
+.age-button:hover {
+    box-shadow: 0 0 22px rgba(255,79,168,.28);
+}
+
+.age-error {
+    display: none;
+    margin-top: 18px !important;
+    color: var(--pink-light) !important;
+    font-size: .9rem;
+}
+
+/* Site */
 
 .site-header {
-    position: relative;
     padding: 30px 24px 24px;
     text-align: center;
     background: rgba(12, 3, 18, .94);
@@ -49,15 +140,11 @@ body {
     font-family: Georgia, "Times New Roman", serif;
     font-size: clamp(2rem, 5vw, 3.2rem);
     letter-spacing: .12em;
-    font-weight: 700;
 }
 
 .adult-badge {
     font-family: Arial, sans-serif;
     font-size: .68em;
-    vertical-align: .12em;
-    margin-left: .08em;
-    filter: drop-shadow(0 0 8px rgba(255,63,159,.7));
 }
 
 .subtitle {
@@ -66,7 +153,6 @@ body {
     font-size: .72rem;
     letter-spacing: .42em;
     padding-left: .42em;
-    font-weight: 600;
 }
 
 nav {
@@ -79,9 +165,6 @@ nav {
 nav a {
     color: var(--muted);
     text-decoration: none;
-    font-size: .92rem;
-    font-weight: 500;
-    padding: 4px 2px;
 }
 
 nav a:hover,
@@ -89,73 +172,55 @@ nav a.active {
     color: var(--pink-light);
 }
 
-/* ---------- Home ---------- */
-
-.home {
-    min-height: 68vh;
+.banner {
+    min-height: 300px;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 70px 20px;
     text-align: center;
+    padding: 55px 20px;
+    background:
+        radial-gradient(circle at 50% 50%, rgba(255,79,168,.20), transparent 35%),
+        linear-gradient(135deg, rgba(157,85,255,.15), rgba(255,79,168,.10));
+    border-bottom: 1px solid var(--border);
 }
 
-.hero { width: min(760px, 100%); }
+.banner-inner {
+    max-width: 900px;
+}
 
-.eyebrow {
-    margin: 0 0 13px;
+.banner .eyebrow,
+.page-heading .eyebrow {
+    margin: 0 0 12px;
     color: var(--pink-light);
     font-size: .68rem;
     letter-spacing: .32em;
-    font-weight: 700;
+    font-weight: bold;
 }
 
-.hero h2 {
+.banner h2,
+.page-heading h2 {
     margin: 0;
     font-family: Georgia, "Times New Roman", serif;
-    font-size: clamp(3rem, 8vw, 5.5rem);
-    line-height: .95;
     color: var(--pink-light);
-    text-shadow: 0 0 28px rgba(255,63,159,.25);
 }
 
-.hero h2 span { color: var(--violet-light); }
+.banner h2 {
+    font-size: clamp(3rem, 8vw, 6rem);
+    text-shadow: 0 0 28px rgba(255,79,168,.22);
+}
 
-.intro {
-    margin: 25px auto 0;
-    max-width: 520px;
+.banner h2 span {
+    color: var(--violet-light);
+}
+
+.banner p {
     color: var(--muted);
-    font-size: 1rem;
 }
-
-.home-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 14px;
-    margin-top: 34px;
-}
-
-.button {
-    display: inline-block;
-    min-width: 135px;
-    padding: 12px 22px;
-    border: 1px solid var(--pink);
-    border-radius: 999px;
-    color: var(--text);
-    text-decoration: none;
-    background: #321343;
-}
-
-.button:hover {
-    background: #4b155a;
-    box-shadow: 0 0 22px rgba(255,63,159,.3);
-}
-
-/* ---------- Content ---------- */
 
 .content {
     width: min(1200px, 100%);
-    margin: 0 auto;
+    margin: auto;
     padding: 55px 24px 80px;
 }
 
@@ -165,20 +230,18 @@ nav a.active {
 }
 
 .page-heading h2 {
-    margin: 0;
-    font-family: Georgia, "Times New Roman", serif;
     font-size: clamp(2.5rem, 6vw, 4rem);
-    color: var(--pink-light);
 }
 
-.artist { margin-bottom: 70px; }
+.artist {
+    margin-bottom: 70px;
+}
 
 .artist h3 {
     margin: 0 0 20px;
-    padding: 0 0 12px 3px;
+    padding-bottom: 12px;
     border-bottom: 1px solid var(--border);
     font-family: Georgia, "Times New Roman", serif;
-    font-size: 1.65rem;
     color: var(--violet-light);
 }
 
@@ -223,132 +286,45 @@ footer {
     font-size: .78rem;
 }
 
-/* =========================================================
-   MOBILE VERSION
-   Deliberately uses solid purple/pink layers so colors
-   remain visible even on restrictive mobile browsers.
-   ========================================================= */
-
 @media (max-width: 700px) {
     body {
-        background-color: var(--bg-mobile);
-        background-image:
-            linear-gradient(
-                180deg,
-                #260a35 0px,
-                #1c0829 240px,
-                #13071d 620px,
-                #180722 100%
-            );
+        background-color: #180722;
+        background-image: linear-gradient(180deg, #260a35, #1b0828 45%, #12061a);
     }
 
     .site-header {
         padding: 24px 16px 20px;
-        background-color: #16071f;
-        background-image: linear-gradient(
-            135deg,
-            #250a36 0%,
-            #190721 55%,
-            #2b0b36 100%
-        );
+        background: #16071f;
         border-bottom: 2px solid #a52b78;
     }
 
     .brand h1 {
         font-size: 2rem;
-        letter-spacing: .08em;
-        color: #ffe5f5;
-        text-shadow: 0 0 14px rgba(255,63,159,.45);
-    }
-
-    .adult-badge {
-        font-size: .64em;
-    }
-
-    .subtitle {
-        color: #ff77bd;
-        letter-spacing: .3em;
-        font-size: .65rem;
     }
 
     nav {
-        gap: 10px;
-        margin-top: 22px;
+        gap: 9px;
     }
 
     nav a {
-        padding: 10px 14px;
+        padding: 9px 12px;
         border: 1px solid #7f2c78;
         border-radius: 999px;
-        color: #f1c9ec;
-        background-color: #321143;
+        background: #321143;
+        font-size: .85rem;
     }
 
-    nav a.active,
-    nav a:hover {
-        color: #fff;
-        border-color: #ff4fa8;
-        background-color: #56135e;
+    .banner {
+        min-height: 270px;
+        padding: 45px 18px;
     }
 
-    .home {
-        min-height: 68vh;
-        padding: 55px 18px;
-        background-image:
-            radial-gradient(circle at 50% 25%, rgba(201,138,255,.20), transparent 34%);
-    }
-
-    .hero h2 {
-        font-size: clamp(2.65rem, 14vw, 4.2rem);
-        color: #ff80c5;
-        text-shadow:
-            0 0 10px rgba(255,63,159,.42),
-            0 0 28px rgba(145,76,255,.25);
-    }
-
-    .hero h2 span { color: #c98aff; }
-
-    .eyebrow {
-        color: #ff9bd0;
-    }
-
-    .intro {
-        color: #ddc8e4;
-        line-height: 1.6;
-    }
-
-    .home-buttons {
-        flex-direction: column;
-        align-items: center;
-        gap: 12px;
-    }
-
-    .button {
-        width: min(260px, 90%);
-        background: linear-gradient(135deg, #421452, #68145f);
-        border-color: #ff4fa8;
-        box-shadow: 0 5px 20px rgba(255,63,159,.14);
+    .banner h2 {
+        font-size: clamp(2.6rem, 13vw, 4rem);
     }
 
     .content {
         padding: 40px 15px 65px;
-    }
-
-    .page-heading {
-        margin-bottom: 42px;
-    }
-
-    .page-heading h2 {
-        color: #ff80c5;
-    }
-
-    .artist {
-        margin-bottom: 52px;
-    }
-
-    .artist h3 {
-        color: #c98aff;
-        border-bottom-color: #8d3d83;
     }
 
     .gallery-grid {
@@ -356,24 +332,16 @@ footer {
         gap: 10px;
     }
 
-    .gallery-grid a {
-        border-color: #7f2c78;
-        border-radius: 9px;
-        background: #28102f;
-    }
-
     .animation-grid {
         grid-template-columns: 1fr;
-        gap: 14px;
     }
 
-    .animation-grid video {
-        border-color: #7f2c78;
+    .age-card {
+        padding: 36px 22px 30px;
     }
 
-    footer {
-        background-color: #100518;
-        border-top-color: #6e286b;
-        color: #b99dbf;
+    .age-buttons {
+        flex-direction: column;
+        align-items: stretch;
     }
 }
