@@ -1,21 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Animations — DarkBandit After Dark</title>
-    <link rel="stylesheet" href="/DarkBanditAfterDark/css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Animations — DarkBandit After Dark</title>
+<link rel="stylesheet" href="/DarkBanditAfterDark/css/style.css">
 </head>
 <body>
+<div id="age-gate" class="age-gate">
+    <div class="age-card">
+        <div class="age-icon">🔞</div>
+        <h1>DARKBANDIT</h1>
+        <div class="age-subtitle">AFTER DARK</div>
+
+        <h2>18+ Only</h2>
+
+        <p>
+            This website contains adult fanworks and is intended
+            exclusively for viewers aged 18 or older.
+        </p>
+
+        <div class="age-buttons">
+            <button id="age-enter" class="age-button enter">
+                Yes, I'm 18+
+            </button>
+
+            <button id="age-leave" class="age-button">
+                No, leave
+            </button>
+        </div>
+
+        <p id="age-error" class="age-error"></p>
+    </div>
+</div>
 <header class="site-header">
     <div class="brand">
         <h1>DARKBANDIT <span class="adult-badge">🔞</span></h1>
         <div class="subtitle">AFTER DARK</div>
     </div>
     <nav>
-        <a href="/DarkBanditAfterDark/index.html">Home</a>
-        <a href="/DarkBanditAfterDark/gallery.html">Gallery</a>
-        <a href="/DarkBanditAfterDark/animations.html">Animations</a>
+        <a href="/DarkBanditAfterDark/index.html" class="">Home</a>
+        <a href="/DarkBanditAfterDark/gallery.html" class="">Gallery</a>
+        <a href="/DarkBanditAfterDark/animations.html" class="active">Animations</a>
     </nav>
 </header>
 <main class="content">
@@ -23,21 +49,16 @@
         <p class="eyebrow">18+ ARCHIVE</p>
         <h2>Animations</h2>
     </div>
-
     <section class="artist">
         <h3>Artist 1</h3>
-        <div class="animation-grid">
-            <!-- Add animations here -->
-        </div>
+        <div class="animation-grid"></div>
     </section>
-
     <section class="artist">
         <h3>Artist 2</h3>
-        <div class="animation-grid">
-            <!-- Animations go here -->
-        </div>
+        <div class="animation-grid"></div>
     </section>
 </main>
 <footer><p>DarkBandit After Dark · 18+ fan archive</p></footer>
+<script src="/DarkBanditAfterDark/js/age-gate.js"></script>
 </body>
 </html>
